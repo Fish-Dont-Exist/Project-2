@@ -66,7 +66,7 @@ public class LinkedStack<T> implements StackInterface<T>
 					break;
 
 				case '+': case '-': case '*': case '/':
-					while(!operatorStack.isEmpty()) // if there is something inside the operator stack
+					while(!operatorStack.isEmpty()) //&& precedenc of next character <= precendence of operatorStack.peek()) // if there is something inside the operator stack
 					{
 						postfix += operatorStack.peek(); // add the top item of the stack
 						operatorStack.pop(); // remove top item of the stack
