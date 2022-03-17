@@ -112,7 +112,7 @@ public class Calculator<T>
 		int[] values = {2, 3, 4, 5, 6};
 
 
-		ResizeableArrayStack<Integer> valueStack = new ResizeableArrayStack<>();
+		ResizeableArrayStack<Float> valueStack = new ResizeableArrayStack<>();
 		while (index < characterCount)
 		{
 			// Get next non-blank character
@@ -123,7 +123,7 @@ public class Calculator<T>
 			{
 				// The cases for variables
 				case 'a':
-					valueStack.push(2);
+					valueStack.push(2.0);
 					break;
 				case 'b':
 					valueStack.push(3);
@@ -140,11 +140,11 @@ public class Calculator<T>
 
 				// Cases for operators
 				case '+': case '-': case '*': case '/': case '^':
-					int operandTwo = valueStack.pop();
-					int operandOne = valueStack.pop();
+					float operandTwo = valueStack.pop();
+					float operandOne = valueStack.pop();
 
 					// Calculate the result of the operation and its two operands
-					int result = calculateResult(nextCharacter,operandOne, operandTwo);
+					float result = calculateResult(nextCharacter,operandOne, operandTwo);
 
 					// Push the result onto the valueStack
 					valueStack.push(result);
@@ -156,9 +156,24 @@ public class Calculator<T>
 		return valueStack.peek();
 	} // end evaluatePostfix
 
-	public static int calculateResult(Character operation, int operandOne, int operandTwo)
+	public static float calculateResult(Character operation, float operandOne, float operandTwo)
 	{
-
-		return 3;
+		float result = 0;
+		switch (operation)
+		{
+			case '+':
+				return operandOne + operandTwo;
+			case '-':
+				return operandOne - operandTwo;
+			case '*':
+				return operandOne * operandTwo;
+			case '/':
+				return (float) operandOne/operandTwo;
+			case '^':
+				int operand1 = (int) operandOne;
+				int operand2 = (int) operandTwo;
+				return operand1^operand2;
+		}
+		return result;
 	}
 }
