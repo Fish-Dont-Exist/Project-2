@@ -78,7 +78,7 @@ public class Calculator<T>
 			case '+':
 			case '-':
 				// Now we are checking to make sure that operator 2 has a higher precedence
-				if (operator2 == '*' || operator2 == '/') { return true;}
+				if (operator2 == '*' || operator2 == '/' || operator2 == '^') { return true;}
 
 				else if(operator2 == '(') {break;}
 
@@ -87,7 +87,7 @@ public class Calculator<T>
 				if (operator2 == '+' || operator2 == '-' || operator2 == '(')
 				{
 					break;
-				} else if (operator2 == '*' || operator2 == '/')
+				} else if (operator2 == '*' || operator2 == '/' || operator2 == '^')
 				{
 					return true;
 				}
@@ -100,7 +100,7 @@ public class Calculator<T>
 	 * @param postfix The postfix expression that will be evaluated
 	 * @return The result of the postfix evaluation.
 	 */
-	public static int evaluatePostfix(String postfix)
+	public static double evaluatePostfix(String postfix)
 	{
 		int characterCount = postfix.length();
 		int index = 0;
@@ -112,7 +112,7 @@ public class Calculator<T>
 		int[] values = {2, 3, 4, 5, 6};
 
 
-		ResizeableArrayStack<Float> valueStack = new ResizeableArrayStack<>();
+		ResizeableArrayStack<Double> valueStack = new ResizeableArrayStack<>();
 		while (index < characterCount)
 		{
 			// Get next non-blank character
@@ -126,25 +126,25 @@ public class Calculator<T>
 					valueStack.push(2.0);
 					break;
 				case 'b':
-					valueStack.push(3);
+					valueStack.push(3.0);
 					break;
 				case 'c':
-					valueStack.push(4);
+					valueStack.push(4.0);
 					break;
 				case 'd':
-					valueStack.push(5);
+					valueStack.push(5.0);
 					break;
 				case 'e':
-					valueStack.push(6);
+					valueStack.push(6.0);
 					break;
 
 				// Cases for operators
 				case '+': case '-': case '*': case '/': case '^':
-					float operandTwo = valueStack.pop();
-					float operandOne = valueStack.pop();
+					double operandTwo = valueStack.pop();
+					double operandOne = valueStack.pop();
 
 					// Calculate the result of the operation and its two operands
-					float result = calculateResult(nextCharacter,operandOne, operandTwo);
+					double result = calculateResult(nextCharacter,operandOne, operandTwo);
 
 					// Push the result onto the valueStack
 					valueStack.push(result);
@@ -156,9 +156,9 @@ public class Calculator<T>
 		return valueStack.peek();
 	} // end evaluatePostfix
 
-	public static float calculateResult(Character operation, float operandOne, float operandTwo)
+	public static double calculateResult(Character operation, double operandOne, double operandTwo)
 	{
-		float result = 0;
+		double result = 0;
 		switch (operation)
 		{
 			case '+':
@@ -172,7 +172,7 @@ public class Calculator<T>
 			case '^':
 				int operand1 = (int) operandOne;
 				int operand2 = (int) operandTwo;
-				return operand1^operand2;
+				return Math.pow(operand1, operand2);
 		}
 		return result;
 	}
