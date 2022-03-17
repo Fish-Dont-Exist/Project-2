@@ -16,4 +16,18 @@ public class CalculatorTest extends Calculator<String>
         assertEquals(postfix, "ab+");
         System.out.println(postfix);
     }
+
+
+    // TESTING EVALUATE POSTFIX
+    @Test
+    public void simplePostfixExpression()
+    {
+        // Write postfix expression
+        String postfix = convertToPostfix("a+b");
+
+        // Evaluate the postfix expression
+        int result = evaluatePostfix(postfix);
+
+        System.out.println(result);
+    }
 }

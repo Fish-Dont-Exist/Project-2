@@ -115,7 +115,7 @@ public class Calculator<T>
 		ResizeableArrayStack<Integer> valueStack = new ResizeableArrayStack<>();
 		while (index < characterCount)
 		{
-			// Get next nonblank character
+			// Get next non-blank character
 			nextCharacter = postfix.charAt(index);
 
 			// Check the cases
@@ -140,14 +140,25 @@ public class Calculator<T>
 
 				// Cases for operators
 				case '+': case '-': case '*': case '/': case '^':
-				int operandTwo = valueStack.pop();
-				int operandOne = valueStack.pop();
+					int operandTwo = valueStack.pop();
+					int operandOne = valueStack.pop();
 
+					// Calculate the result of the operation and its two operands
+					int result = calculateResult(nextCharacter,operandOne, operandTwo);
 
+					// Push the result onto the valueStack
+					valueStack.push(result);
+					break;
+				default: break; // Ignore unexpected characters
+			} // end switch
+			index ++;
+		} // end while
+		return valueStack.peek();
+	} // end evaluatePostfix
 
-			}
+	public static int calculateResult(Character operation, int operandOne, int operandTwo)
+	{
 
-		}
-		return 0;
+		return 3;
 	}
 }
