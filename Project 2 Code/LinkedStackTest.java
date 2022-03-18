@@ -13,6 +13,11 @@ public class LinkedStackTest
 
     }
 
+    /**
+     * Converts an infix expression to a postfix expression.
+     * @param infix A String of an infix expression to be changed.
+     * @return The String of the postfix expression.
+     */
     public static String convertToPostFix(String infix)
     {
         int characterCount = infix.length();
@@ -103,6 +108,6 @@ public class LinkedStackTest
                 }
         }
         return false;
-    }
+    } // end checkPrecedence
 	
 }
