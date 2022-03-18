@@ -9,11 +9,18 @@ public final class ResizeableArrayStack<T> implements StackInterface<T>
 	private static final int DEFAULT_CAPACITY = 50;
 	private static final int MAX_CAPACITY = 10000;
 
+	/**
+	 * The default constructor.
+	 */
 	public ResizeableArrayStack()
 	{
 		this(DEFAULT_CAPACITY);
 	}// end default constructor
 
+	/**
+	 * A constructor that initializes a ResizableArrayStack with a specified initial capacity.
+	 * @param initialCapacity Specifies the initial capacity the resizable array stack should have.
+	 */
 	public ResizeableArrayStack(int initialCapacity)
 	{
 		integrityOK = false;
@@ -26,6 +33,10 @@ public final class ResizeableArrayStack<T> implements StackInterface<T>
 		integrityOK = true;
 	}
 
+	/**
+	 * Adds an object to the stack.
+	 * @param newEntry The object to be added to the stack.
+	 */
 	public void push(T newEntry)
 	{
 		checkIntegrity();
@@ -34,6 +45,10 @@ public final class ResizeableArrayStack<T> implements StackInterface<T>
 		topIndex++;
 	}// end push
 
+	/**
+	 * Removes the top object from the stack.
+	 * @return Returns the object removed from the stack, or null if it did not work.
+	 */
 	public T pop()
 	{
 		checkIntegrity();
@@ -48,6 +63,10 @@ public final class ResizeableArrayStack<T> implements StackInterface<T>
 		}// end if
 	}// end pop
 
+	/**
+	 * Returns the object on the top of the stack.
+	 * @return Returns the object on the top of the stack.
+	 */
 	public T peek()
 	{
 		checkIntegrity();
@@ -57,11 +76,18 @@ public final class ResizeableArrayStack<T> implements StackInterface<T>
 			return stack[topIndex];
 	}// end peek
 
+	/**
+	 * Checks if the stack is empty.
+	 * @return Returns true if the stack is empty and false otherwise.
+	 */
 	public boolean isEmpty()
 	{
 		return topIndex < 0;
 	}// end isEmpty
 
+	/**
+	 * Clears the stack of objects.
+	 */
 	public void clear()
 	{
 		checkIntegrity();
@@ -77,7 +103,9 @@ public final class ResizeableArrayStack<T> implements StackInterface<T>
 	}// end clear
 
 
-
+	/**
+	 * Ensures the capacity of the stack does not exceed the max length.
+	 */
 	public void ensureCapacity()
 	{
 		if (topIndex >= stack.length - 1)// if array is full, double its size
@@ -88,6 +116,9 @@ public final class ResizeableArrayStack<T> implements StackInterface<T>
 		}
 	}
 
+	/**
+	 * Ensures the integrity of the stack.
+	 */
 	private void checkIntegrity()
     {
         if (!integrityOK)
@@ -96,6 +127,10 @@ public final class ResizeableArrayStack<T> implements StackInterface<T>
         } // end checkIntegrity
     }
 
+	/**
+	 * Checks if the capacity of the stack exceeds the max capacity.
+	 * @param capacity The capacity to be checked.
+	 */
 	private void checkCapacity(int capacity)
     {
         if (capacity > MAX_CAPACITY) throw new IllegalStateException("Attempt to create a bag whose" +
