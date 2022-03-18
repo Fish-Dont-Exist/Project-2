@@ -69,7 +69,7 @@ public class Calculator<T>
 	 * Will compare the precedence of two operators
 	 * @param operator1 Operator 1
 	 * @param operator2 Operator 2
-	 * @return true if operator one has a smaller precedence than that of operator 2 or if operator 2 is null; false otherwise
+	 * @return true if operator one has a smaller or equal to precedence than that of operator 2 or if operator 2 is null; false otherwise
 	 */
 	public static boolean checkPrecedence(Character operator1, Character operator2)
 	{
@@ -78,7 +78,7 @@ public class Calculator<T>
 			case '+':
 			case '-':
 				// Now we are checking to make sure that operator 2 has a higher precedence
-				if (operator2 == '*' || operator2 == '/' || operator2 == '^') { return true;}
+				if (operator2 == '*' || operator2 == '/' || operator2 == '^' || operator2 == '-' || operator2 == '+') { return true;}
 
 				else if(operator2 == '(') {break;}
 
@@ -87,7 +87,8 @@ public class Calculator<T>
 				if (operator2 == '+' || operator2 == '-' || operator2 == '(')
 				{
 					break;
-				} else if (operator2 == '*' || operator2 == '/' || operator2 == '^')
+				}
+				else if (operator2 == '*' || operator2 == '/' || operator2 == '^')
 				{
 					return true;
 				}

@@ -10,11 +10,13 @@ public class CalculatorTest extends Calculator<String>
         // Write infix expression
         String infix = "a+b";
 
+        // Create calculator object
+        Calculator<String> calc = new Calculator<>();
+
         // Convert to outfix
-        String postfix = convertToPostfix(infix);
+        String postfix = calc.convertToPostfix(infix);
 
         assertEquals(postfix, "ab+");
-        System.out.println(postfix);
     }
 
     @Test
@@ -125,13 +127,15 @@ public class CalculatorTest extends Calculator<String>
     public void multipleOperatorsWithoutParenthesesExpression()
     {
         // Write infix expression
-        String infix = "a+b*c-d/e";
+//        String infix = "a+b*c-d/e";
+        String infix = "a+b*c-d";
 
         // Convert to outfix
         String postfix = convertToPostfix(infix);
 
         // Check equals
-        assertEquals(postfix, "abc*+de/-");
+//        assertEquals(postfix, "abc*+de/-");
+        assertEquals("abc*+d-",postfix);
     }
 
     @Test
@@ -147,6 +151,8 @@ public class CalculatorTest extends Calculator<String>
         assertEquals("ab/cde-+*", postfix);
     }
 
+
+
     // TESTING EVALUATE POSTFIX
     @Test
     public void SimpleSubtractionPostfixEvaluation()
@@ -158,7 +164,7 @@ public class CalculatorTest extends Calculator<String>
         double result = evaluatePostfix(postfix);
 
         assertEquals(result, -1, 0.0001);
-        System.out.println(result);
+
     }
 
     @Test
@@ -237,8 +243,6 @@ public class CalculatorTest extends Calculator<String>
 
         // Test equals
         assertEquals(result, 5.5, 0.0001);
-
-        System.out.println(result);
     }
 
     @Test
@@ -258,13 +262,13 @@ public class CalculatorTest extends Calculator<String>
     public void AllOperatorsWithoutParenthesesEvaluation()
     {
         // Write postfix expression
-        String postfix = convertToPostfix("d^2-a*b/e + c");
+        String postfix = convertToPostfix("d^b-a*b/e + c");
 
         // Evaluate postfix expression
         double result = evaluatePostfix(postfix);
 
         // Test equals
-        assertEquals(28.0, result, 0.0001);
+        assertEquals(128.0, result, 0.0001);
     }
 
     @Test
