@@ -183,134 +183,167 @@ public class CalculatorTest //extends Calculator<String>
 
 
 
-//    // TESTING EVALUATE POSTFIX
-//    @Test
-//    public void SimpleSubtractionPostfixEvaluation()
-//    {
-//        // Write postfix expression
-//        String postfix = convertToPostfix("a-b");
-//
-//        // Evaluate the postfix expression
-//        double result = evaluatePostfix(postfix);
-//
-//        assertEquals(result, -1, 0.0001);
-//
-//    }
-//
-//    @Test
-//    public void SimpleAdditionPostfixEvaluation()
-//    {
-//        // Write postfix expression
-//        String postfix = convertToPostfix("a+b");
-//
-//        // Evaluate the postfix expression
-//        double result = evaluatePostfix(postfix);
-//
-//        // Test equals
-//        assertEquals(result, 5.0, 0.0001);
-//    }
-//
-//    @Test
-//    public void SimpleMultiplicationPostfixEvaluation()
-//    {
-//        // Write postfix expression
-//        String postfix = convertToPostfix("b*c");
-//
-//        // Evaluate the postfix expression
-//        double result = evaluatePostfix(postfix);
-//
-//        // Test equals
-//        assertEquals(result, 12, 0.0001);
-//    }
-//
-//    @Test
-//    public void SimpleDivisionPostfixEvaluation()
-//    {
-//        // Write postfix expression
-//        String postfix = convertToPostfix("e/b");
-//
-//        // Evaluate the postfix expression
-//        double result = evaluatePostfix(postfix);
-//
-//        // Test equals
-//        assertEquals(result, 2, 0.0001);
-//    }
-//
-//    @Test
-//    public void SimpleExponentPostfixEvaluation()
-//    {
-//        // Write postfix expression
-//        String postfix = convertToPostfix("b^c");
-//
-//        // Evaluate the postfix expression
-//        double result = evaluatePostfix(postfix);
-//
-//        // Test equals
-//        assertEquals(81, result,0.0001);
-//    }
-//
-//    @Test
-//    public void MixedAdditionAndMultiplicationPostfixEvaluation()
-//    {
-//        // Write postfix expression
-//        String postfix = convertToPostfix("a+b*c");
-//
-//        // Evaluate the postfix expression
-//        double result = evaluatePostfix(postfix);
-//
-//        // Test equals
-//        assertEquals(result, 14, 0.0001);
-//    }
-//
-//    @Test
-//    public void MixedAdditionAndDivisionPostfixEvaluation()
-//    {
-//        // Write postfix expression
-//        String postfix = convertToPostfix("b/a+c");
-//
-//        // Evaluation the postfix expression
-//        double result = evaluatePostfix(postfix);
-//
-//        // Test equals
-//        assertEquals(result, 5.5, 0.0001);
-//    }
-//
-//    @Test
-//    public void MixedAdditionAndMultiplicationWithParenthesesEvaluation()
-//    {
-//        // Write postfix expression
+    // TESTING EVALUATE POSTFIX
+    @Test
+    public void SimpleSubtractionPostfixEvaluation()
+    {
+        // Write postfix expression
+        String postfix = "ab-";
+
+        // Create calculator object
+        Calculator<String> calc = new Calculator<>();
+
+        // Evaluate the postfix expression
+        double result = calc.evaluatePostfix(postfix);
+
+        assertEquals(result, -1, 0.0001);
+
+    }
+
+    @Test
+    public void SimpleAdditionPostfixEvaluation()
+    {
+        // Write postfix expression
+        String postfix = "ab+";
+
+        // Create calculator object
+        Calculator<String> calc = new Calculator<>();
+
+        // Evaluate the postfix expression
+        double result = calc.evaluatePostfix(postfix);
+
+        // Test equals
+        assertEquals(result, 5.0, 0.0001);
+    }
+
+    @Test
+    public void SimpleMultiplicationPostfixEvaluation()
+    {
+        // Write postfix expression
+        String postfix = "bc*";
+
+        // Create calculator object
+        Calculator<String> calc = new Calculator<>();
+
+        // Evaluate the postfix expression
+        double result = calc.evaluatePostfix(postfix);
+
+        // Test equals
+        assertEquals(result, 12, 0.0001);
+    }
+
+    @Test
+    public void SimpleDivisionPostfixEvaluation()
+    {
+        // Write postfix expression
+        String postfix = "eb/";
+
+        // Create calculator object
+        Calculator<String> calc = new Calculator<>();
+
+        // Evaluate the postfix expression
+        double result = calc.evaluatePostfix(postfix);
+
+        // Test equals
+        assertEquals(result, 2, 0.0001);
+    }
+
+    @Test
+    public void SimpleExponentPostfixEvaluation()
+    {
+        // Write postfix expression
+        String postfix = "bc^";
+
+        // Create calculator object
+        Calculator<String> calc = new Calculator<>();
+
+        // Evaluate the postfix expression
+        double result = calc.evaluatePostfix(postfix);
+
+        // Test equals
+        assertEquals(81, result,0.0001);
+    }
+
+    @Test
+    public void MixedAdditionAndMultiplicationPostfixEvaluation()
+    {
+        // Write postfix expression
+        String postfix = "abc*+";
+
+        // Create calculator object
+        Calculator<String> calc = new Calculator<>();
+
+        // Evaluate the postfix expression
+        double result = calc.evaluatePostfix(postfix);
+
+        // Test equals
+        assertEquals(result, 14, 0.0001);
+    }
+
+    @Test
+    public void MixedAdditionAndDivisionPostfixEvaluation()
+    {
+        // Write postfix expression
+        String postfix = "ba/c+";
+
+        // Create calculator object
+        Calculator<String> calc = new Calculator<>();
+
+        // Evaluate the postfix expression
+        double result = calc.evaluatePostfix(postfix);
+
+        // Test equals
+        assertEquals(result, 5.5, 0.0001);
+    }
+
+    @Test
+    public void MixedAdditionAndMultiplicationWithParenthesesEvaluation()
+    {
+        // Write postfix expression
 //        String postfix = convertToPostfix("(a+b)/d");
-//
-//        // Evaluate postfix expression
-//        double result = evaluatePostfix(postfix);
-//
-//        // Test equals
-//        assertEquals(result, 1.0, 0.0001);
-//    }
-//
-//    @Test
-//    public void AllOperatorsWithoutParenthesesEvaluation()
-//    {
-//        // Write postfix expression
+        String postfix = "ab+d/";
+
+        // Create calculator object
+        Calculator<String> calc = new Calculator<>();
+
+        // Evaluate the postfix expression
+        double result = calc.evaluatePostfix(postfix);
+
+        // Test equals
+        assertEquals(result, 1.0, 0.0001);
+    }
+
+    @Test
+    public void AllOperatorsWithoutParenthesesEvaluation()
+    {
+        // Write postfix expression
 //        String postfix = convertToPostfix("d^b-a*b/e + c");
-//
-//        // Evaluate postfix expression
-//        double result = evaluatePostfix(postfix);
-//
-//        // Test equals
-//        assertEquals(128.0, result, 0.0001);
-//    }
-//
-//    @Test
-//    public void AllOperatorsWithParenthesesEvaluation()
-//    {
-//        // Write postfix expression
+        String postfix = "db^ab*e/-c+";
+
+        // Create calculator object
+        Calculator<String> calc = new Calculator<>();
+
+        // Evaluate the postfix expression
+        double result = calc.evaluatePostfix(postfix);
+
+        // Test equals
+        assertEquals(128.0, result, 0.0001);
+    }
+
+    @Test
+    public void AllOperatorsWithParenthesesEvaluation()
+    {
+        // Write postfix expression
 //        String postfix = convertToPostfix("a/b*(c+(d-e))");
-//
-//        // Evaluate postfix expression
-//        double result = evaluatePostfix(postfix);
-//
-//        // Test equals
-//        assertEquals(result, 2.0, 0.0001);
-//    }
+        String postfix = "ab/cde-+*";
+
+        // Create calculator object
+        Calculator<String> calc = new Calculator<>();
+
+        // Evaluate the postfix expression
+        double result = calc.evaluatePostfix(postfix);
+
+        // Test equals
+        assertEquals(result, 2.0, 0.0001);
+    }
 }
