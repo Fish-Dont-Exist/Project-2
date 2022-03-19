@@ -83,6 +83,7 @@ public class Calculator<T>
 		return postfix;
 	} // end convertToPostFix
 
+
 	/**
 	 * Will compare the precedence of two operators
 	 * @param operator1 Operator 1
@@ -113,6 +114,7 @@ public class Calculator<T>
 		}
 		return false;
 	}
+
 
 	/**
 	 * This algorithm will take in a postfix expression and will evaluate it.
@@ -174,6 +176,7 @@ public class Calculator<T>
 		} // end while
 		return valueStack.peek();
 	} // end evaluatePostfix
+
 
 	public static double calculateResult(Character operation, double operandOne, double operandTwo)
 	{
