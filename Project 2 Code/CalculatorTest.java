@@ -11,10 +11,10 @@ public class CalculatorTest extends Calculator<String>
         String infix = "a+b";
 
         // Create calculator object
-        Calculator<String> calc = new Calculator<>();
+//        Calculator<String> calc = new Calculator<>();
 
         // Convert to outfix
-        String postfix = calc.convertToPostfix(infix);
+        String postfix = Calculator.convertToPostfix(infix);
 
         assertEquals(postfix, "ab+");
     }
@@ -283,6 +283,4 @@ public class CalculatorTest extends Calculator<String>
         // Test equals
         assertEquals(result, 2.0, 0.0001);
     }
-
-
 }

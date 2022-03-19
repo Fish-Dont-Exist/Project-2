@@ -4,7 +4,26 @@
  */
 public class Calculator<T>
 {
-	public String convertToPostfix(String infix)
+	public static void main(String[] args)
+	{
+		// Create the infix expression
+		String infix = "a*b/(c-a) + d*e";
+
+		// Convert the infix expression to a postfix expression
+		String postfix = convertToPostfix(infix);
+
+		// Print out the result
+		System.out.print("The converted infix expression is: " + postfix + "\n");
+
+		// Evaluate postfix expression
+		double result = evaluatePostfix(postfix);
+
+		// Print results
+		System.out.println("The result of the evaluation (where a = 2, b = 3, c = 4, d = 5, e = 6) is " + result);
+	}
+
+
+	public static String convertToPostfix(String infix)
 	{
 		int characterCount = infix.length();
 		int index = 0;
@@ -20,7 +39,6 @@ public class Calculator<T>
 			switch(nextCharacter) // check what type the character is
 			{
 				case 'a': case 'b': case 'c': case 'd': case 'e': case 'f': //if it is a variable add it to postfix
-//                case Character.isLetter(infix.charAt(index)) :
 				postfix += infix.charAt(index);
 				break;
 
