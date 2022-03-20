@@ -22,7 +22,11 @@ public class Calculator<T>
 		System.out.println("The result of the evaluation (where a = 2, b = 3, c = 4, d = 5, e = 6) is " + result);
 	}
 
-
+	/**
+	 * Will convert infix string expression to postfix string expression
+	 * @param infix String expression that will be converted to postfix
+	 * @return string that is postfix version of input infix expression
+	 */
 	public static String convertToPostfix(String infix)
 	{
 		int characterCount = infix.length();
@@ -90,7 +94,7 @@ public class Calculator<T>
 	 * @param operator2 Operator 2
 	 * @return true if operator one has a smaller or equal to precedence than that of operator 2 or if operator 2 is null; false otherwise
 	 */
-	public static boolean checkPrecedence(Character operator1, Character operator2)
+	private static boolean checkPrecedence(Character operator1, Character operator2)
 	{
 		switch (operator1)
 		{
@@ -178,7 +182,14 @@ public class Calculator<T>
 	} // end evaluatePostfix
 
 
-	public static double calculateResult(Character operation, double operandOne, double operandTwo)
+	/**
+	 * Calculates the result of the two operands and the operation
+	 * @param operation  The operation that is passed into the function; (+, -, *, /, ^)
+	 * @param operandOne The first operand of the expression  (comes before operator)
+	 * @param operandTwo The second operand of the expression (comes after operator)
+	 * @return result of the two operands and the operation (double)
+	 */
+	private static double calculateResult(Character operation, double operandOne, double operandTwo)
 	{
 		double result = 0;
 		switch (operation)

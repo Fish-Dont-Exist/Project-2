@@ -16,7 +16,7 @@ public class CalculatorTest //extends Calculator<String>
         // Convert to outfix
         String postfix = calc.convertToPostfix(infix);
 
-        assertEquals(postfix, "ab+");
+        assertEquals("ab+", postfix);
     }
 
     @Test
@@ -32,7 +32,7 @@ public class CalculatorTest //extends Calculator<String>
         String postfix = calc.convertToPostfix(infix);
 
         // Check equals
-        assertEquals(postfix, "dc-");
+        assertEquals("dc-", postfix);
     }
 
     @Test
@@ -48,7 +48,7 @@ public class CalculatorTest //extends Calculator<String>
         String postfix = calc.convertToPostfix(infix);
 
         // Check equals
-        assertEquals(postfix, "de*");
+        assertEquals("de*", postfix);
     }
 
     @Test
@@ -64,7 +64,7 @@ public class CalculatorTest //extends Calculator<String>
         String postfix = calc.convertToPostfix(infix);
 
         // Check equals
-        assertEquals(postfix, "ae/");
+        assertEquals("ae/", postfix);
     }
 
     @Test
@@ -80,7 +80,7 @@ public class CalculatorTest //extends Calculator<String>
         String postfix = calc.convertToPostfix(infix);
 
         // Check equals
-        assertEquals(postfix, "ab^");
+        assertEquals("ab^", postfix);
     }
 
     @Test
@@ -144,7 +144,7 @@ public class CalculatorTest //extends Calculator<String>
         String postfix = calc.convertToPostfix(infix);
 
         // Check equals
-        assertEquals(postfix, "abcd^^^");
+        assertEquals("abcd^^^", postfix);
     }
 
     @Test
@@ -196,7 +196,7 @@ public class CalculatorTest //extends Calculator<String>
         // Evaluate the postfix expression
         double result = calc.evaluatePostfix(postfix);
 
-        assertEquals(result, -1, 0.0001);
+        assertEquals(-1, result, 0.0001);
 
     }
 
@@ -213,7 +213,7 @@ public class CalculatorTest //extends Calculator<String>
         double result = calc.evaluatePostfix(postfix);
 
         // Test equals
-        assertEquals(result, 5.0, 0.0001);
+        assertEquals(5.0, result, 0.0001);
     }
 
     @Test
@@ -229,7 +229,7 @@ public class CalculatorTest //extends Calculator<String>
         double result = calc.evaluatePostfix(postfix);
 
         // Test equals
-        assertEquals(result, 12, 0.0001);
+        assertEquals(12, result,0.0001);
     }
 
     @Test
@@ -245,7 +245,7 @@ public class CalculatorTest //extends Calculator<String>
         double result = calc.evaluatePostfix(postfix);
 
         // Test equals
-        assertEquals(result, 2, 0.0001);
+        assertEquals(2, result, 0.0001);
     }
 
     @Test
@@ -277,7 +277,7 @@ public class CalculatorTest //extends Calculator<String>
         double result = calc.evaluatePostfix(postfix);
 
         // Test equals
-        assertEquals(result, 14, 0.0001);
+        assertEquals(14, result, 0.0001);
     }
 
     @Test
@@ -293,7 +293,7 @@ public class CalculatorTest //extends Calculator<String>
         double result = calc.evaluatePostfix(postfix);
 
         // Test equals
-        assertEquals(result, 5.5, 0.0001);
+        assertEquals(5.5, result, 0.0001);
     }
 
     @Test
@@ -310,7 +310,7 @@ public class CalculatorTest //extends Calculator<String>
         double result = calc.evaluatePostfix(postfix);
 
         // Test equals
-        assertEquals(result, 1.0, 0.0001);
+        assertEquals(1.0, result, 0.0001);
     }
 
     @Test
@@ -344,6 +344,6 @@ public class CalculatorTest //extends Calculator<String>
         double result = calc.evaluatePostfix(postfix);
 
         // Test equals
-        assertEquals(result, 2.0, 0.0001);
+        assertEquals(2.0, result, 0.0001);
     }
 }
