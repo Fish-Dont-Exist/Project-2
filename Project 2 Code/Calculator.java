@@ -1,9 +1,14 @@
 /**
- * The class Calculator implements
- * @param <T>
+ * The class Calculator implements the methods convertToPostFix, checkPrecedence,
+ * evaluatePostFix, and calculateResult.
+ * @param <T> An unspecified object that can be replaced with any object.
  */
 public class Calculator<T>
 {
+	/**
+	 * The main method.
+	 * @param args The String arguments being passed into the main method.
+	 */
 	public static void main(String[] args)
 	{
 		// Create the infix expression
