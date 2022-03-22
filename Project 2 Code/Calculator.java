@@ -56,7 +56,7 @@ public class Calculator<T>
 					break;
 
 				case '+': case '-': case '*': case '/':
-				while(!operatorStack.isEmpty() && checkPrecedence(nextCharacter, operatorStack.peek())) //&& precedenc of next character <= precendence of operatorStack.peek()) // if there is something inside the operator stack
+				while(!operatorStack.isEmpty() && checkPrecedence(nextCharacter, operatorStack.peek())) //&& precedence of next character <= precendence of operatorStack.peek()) // if there is something inside the operator stack
 				{
 					postfix += operatorStack.peek(); // add the top item of the stack
 					operatorStack.pop(); // remove top item of the stack
